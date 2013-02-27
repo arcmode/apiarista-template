@@ -11,6 +11,6 @@ module.exports = function(app) {
 		.get('/users', list)
 		.post('/users', create)
 		.get('/users/:user_id', read)
-		.put('/users/:user_id', validUser, sameUser, update)
-		.del('/users/:user_id', validUser, sameUser, _delete);
+		.put('/users/:user_id', authUser, sameUser, update)
+		.del('/users/:user_id', authUser, sameUser, _delete);
 };
