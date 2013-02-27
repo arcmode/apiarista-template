@@ -4,27 +4,33 @@
  */
 
 var User = require('../../data/models/user');
-var Resource = require('../../data/models/resource');
 
-module.exports = function(req, res, next) {
+module.exports = function(name){
 
-	Resource
-		.findById(req.params.resource_id)
-		.exec(function(err, resource){
-			if (err) {
-				return next(err);
-			} else {
-				if (resource) {
+	var Model = require('../../data/models/' + name);
 
-					if (String(resource.user) === req.query.uid) {
-						req.resource = resource;
-						next();
-					} else {
-						res.send(401, "Unauthorized, the given User doesn't owns the requested Resource.");
-					}
+	return function(req, res, next) {
+
+		var object_id = req.params[name + '_id'];
+
+		Model
+			.findById(object_id)
+			.exec(function(err, object){
+				if (err) {
+					return next(err);
 				} else {
-					res.send(404, 'Not Found');
+					if (object) {
+
+						if (String(object.user) === req.query.uid) {
+							req[name] = object;
+							next();
+						} else {
+							res.send(401, 'Unauthorized, the given User doesn\'t owns the requested' + Model.modelName + '.');
+						}
+					} else {
+						res.send(404, 'Not Found');
+					}
 				}
-			}
-		});
+			});
+	}
 }

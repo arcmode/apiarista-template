@@ -4,7 +4,7 @@ var create = require('./create'),
 	update = require('./update'),
 	_delete = require('./delete'),
 	authUser = require('../../../auth/user'),
-	authOwner = require('../../../auth/owner');
+	authOwner = require('../../../auth/owner')('resource');
 
 module.exports = function(app) {
 	app

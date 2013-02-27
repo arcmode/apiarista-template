@@ -7,12 +7,12 @@ var User = require('../../data/models/user');
 
 module.exports = function(req, res, next){
 
-	var uid = req.query.uid,
-		token = req.query.tok;
+	var user_id = req.query.user_id,
+		token = req.query.token;
 
-    if (uid && token) {
+    if (user_id && token) {
     	User 
-		    .findById(uid)
+		    .findById(user_id)
 			.exec(function(err, user) {
 				if (err) {
 	                return next(err);
@@ -30,6 +30,6 @@ module.exports = function(req, res, next){
 	            }
 			});
 	} else {
-	   	res.send(400, 'You must provide both Id and Token.');
+	   	res.send(400, 'You must provide both user_id and token.');
 	}
 };
