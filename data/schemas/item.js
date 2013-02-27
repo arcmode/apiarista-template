@@ -1,7 +1,9 @@
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+    Schema = mongoose.Schema;
 
-//DEPENDENCIES PLACEHOLDER
+// 
+// var ObjectId = Schema.ObjectId,
+//     User = require('../models/user');
 
 var #{Item}Schema = new Schema({
 
