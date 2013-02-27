@@ -1,7 +1,6 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-// 
 // var ObjectId = Schema.ObjectId,
 //     User = require('../models/user');
 
