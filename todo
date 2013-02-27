@@ -1,0 +1,9 @@
+-- Template ownership as a relationship
+-- get generator
+
+		apiarista init
+			-> create base with User Consumer
+		apiarista generate
+			-> create a resource named 'Resource'
+		apiarista generate [ResourceName]
+			-> generate a resource with custom name [ResourceName]

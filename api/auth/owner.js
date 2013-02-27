@@ -4,23 +4,23 @@
  */
 
 var User = require('../../data/models/user');
-var #{Item} = require('../../data/models/#{item}');
+var Resource = require('../../data/models/resource');
 
 module.exports = function(req, res, next) {
 
-	#{Item}
-		.findById(req.params.oid)
-		.exec(function(err, #{item}){
+	Resource
+		.findById(req.params.resource_id)
+		.exec(function(err, resource){
 			if (err) {
 				return next(err);
 			} else {
-				if (#{item}) {
+				if (resource) {
 
-					if (String(#{item}.user) === req.query.uid) {
-						req.#{item} = #{item};
+					if (String(resource.user) === req.query.uid) {
+						req.resource = resource;
 						next();
 					} else {
-						res.send(401, "Unauthorized, the given User doesn't owns the requested #{Item}.");
+						res.send(401, "Unauthorized, the given User doesn't owns the requested Resource.");
 					}
 				} else {
 					res.send(404, 'Not Found');

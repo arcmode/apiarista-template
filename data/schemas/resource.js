@@ -1,14 +1,13 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-// var ObjectId = Schema.ObjectId,
-//     User = require('../models/user');
+//DEPENDENCIES PLACEHOLDER
 
-var #{Item}Schema = new Schema({
+var ResourceSchema = new Schema({
 
   //FIELDS PLACEHOLDER
 
   date: { type: Date, default: Date.now() }
 });
 
-module.exports = #{Item}Schema;
+module.exports = ResourceSchema;

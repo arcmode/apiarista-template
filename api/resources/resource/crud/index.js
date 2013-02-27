@@ -8,9 +8,9 @@ var create = require('./create'),
 
 module.exports = function(app) {
 	app
-		.get('/items', list)
-		.post('/items', create)
-		.get('/items/:iid', read)
-		.put('/items/:iid', authUser, authOwner, update)
-		.del('/items/:iid', authUser, authOwner, _delete);
+		.get('/resources', list)
+		.post('/resources', create)
+		.get('/resources/:resource_id', read)
+		.put('/resources/:resource_id', authUser, authOwner, update)
+		.del('/resources/:resource_id', authUser, authOwner, _delete);
 };
