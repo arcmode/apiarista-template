@@ -1,12 +1,11 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    ObjectId = Schema.ObjectId;
+    Schema = mongoose.Schema;
 
 //DEPENDENCIES PLACEHOLDER
 
 var ResourceSchema = new Schema({
 
-  user: { type: ObjectId,  ref: 'User' },
+  user: { type: Schema.ObjectId,  ref: 'User' },
 
   //FIELDS PLACEHOLDER
 
