@@ -1,11 +1,11 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-/*DEPENDENCIES PLACEHOLDER*/
+//DEPENDENCIES PLACEHOLDER
 
 var #{Item}Schema = new Schema({
 
-  /*FIELDS PLACEHOLDER*/
+  //FIELDS PLACEHOLDER
 
   date: { type: Date, default: Date.now() }
 });
