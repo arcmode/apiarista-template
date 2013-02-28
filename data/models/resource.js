@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
-var ResourceSchema = require('../schemas/resource');
-
-var Resource = mongoose.model('Resource', ResourceSchema);
+var mongoose = require('mongoose'),
+	ResourceSchema = require('../schemas/resource'),
+	db = require('../config/db'),
+	Resource = db.model('Resource', ResourceSchema);
 
 module.exports = Resource;
