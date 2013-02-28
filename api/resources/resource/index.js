@@ -3,7 +3,7 @@ var create = require('./crud/create'),
 	read = require('./crud/read'),
 	update = require('./crud/update'),
 	_delete = require('./crud/delete'),
-	//IF-OWNER authOwner = require('../../auth/owner')('resource');
+	//IF-OWNED authOwner = require('../../auth/owner')('resource');
 	authUser = require('../../auth/user');
 
 module.exports = function(app) {
@@ -18,10 +18,10 @@ module.exports = function(app) {
 		.get('/resources/:resource_id', read)
 
 		.put('/resources/:resource_id', authUser,
-										//IF-OWNER authOwner,
+										//IF-OWNED authOwner,
 										update)
 
 		.del('/resources/:resource_id', authUser,
-										//IF-OWNER authOwner,
+										//IF-OWNED authOwner,
 										_delete);
 };
