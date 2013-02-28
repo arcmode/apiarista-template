@@ -5,11 +5,11 @@ var mongoose = require('mongoose'),
 
 var ResourceSchema = new Schema({
 
-  //IF-OWNER user: { type: Schema.ObjectId, ref: \'User\' }
-
   //FIELDS PLACEHOLDER
 
-  //IF-TIMESTAMP date: { type: Date, default: Date.now }
+  //IF-OWNER user: , { type: Schema.ObjectId, ref: \'User\' }
+
+  //IF-TIMESTAMP , date: { type: Date, default: Date.now }
 });
 
 module.exports = ResourceSchema;
