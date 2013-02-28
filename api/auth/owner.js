@@ -21,7 +21,7 @@ module.exports = function(name){
 				} else {
 					if (object) {
 
-						if (String(object.user) === req.query.uid) {
+						if (String(object.user) === req.query.user_id) {
 							req[name] = object;
 							next();
 						} else {
