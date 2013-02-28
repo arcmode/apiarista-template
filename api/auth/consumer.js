@@ -7,12 +7,12 @@ var Consumer = require('../../data/models/consumer');
 
 module.exports = function(req, res, next){
 
-	var cid = req.query.cid,
-		secret = req.query.sec;
+	var consumer_id = req.query.consumer_id,
+		secret = req.query.secret;
 
-    if (cid && secret) {
+    if (consumer_id && secret) {
     	Consumer 
-    	    .findOne({ _id: cid, secret: secret })
+    	    .findOne({ _id: consumer_id, secret: secret })
     		.exec(function(err, consumer) {
     			if (err) {
                     return next(err);
@@ -26,6 +26,6 @@ module.exports = function(req, res, next){
                 }
     		});
     } else {
-    	res.send(400, 'You must provide Consumer cid and Secret');
+    	res.send(400, 'You must provide Consumer consumer_id and Secret');
     }
 };
