@@ -5,9 +5,9 @@ var mongoose = require('mongoose'),
 
 var UserSchema = new Schema({
 
-	username: String,
+	username: { type: String, required: true },
 	name: { first: String, last: String },
-	email: { type: String, unique: true },
+	email: { type: String, unique: true, required: true },
 
 	token: { 
 		type: String,

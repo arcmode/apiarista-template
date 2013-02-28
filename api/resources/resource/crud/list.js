@@ -1,6 +1,6 @@
 var Resource = require('../../../../data/models/resource');
 
-module.exports = function(req, res) {
+module.exports = function(req, res, next) {
 	
 	Resource.find({}, function(err, resources){
 		if (err) {

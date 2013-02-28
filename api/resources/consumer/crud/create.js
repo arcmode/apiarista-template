@@ -1,6 +1,6 @@
 var Consumer = require('../../../../data/models/consumer');
 
-module.exports = function(req, res) {
+module.exports = function(req, res, next) {
 
 	Consumer.create(req.body, function(err, consumer){
 		if (err) {

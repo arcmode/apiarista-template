@@ -7,8 +7,6 @@ var mongoose = require('mongoose'),
 
 var ConsumerSchema = new Schema({
 
-	user: { type: ObjectId, ref: 'User', required: true },
-
 	secret: { 
 		type: String,
 		default: token(32),
