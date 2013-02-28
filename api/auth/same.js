@@ -1,5 +1,7 @@
 module.exports = function(key) {
 
+	var key += '_id';
+
 	return function(req, res, next) {
 		if (req.params[key] === req.query[key]) {
 			next();
