@@ -1,4 +1,4 @@
-var token = require('token.js');
+var tokenize = require('../utils/tokenize');
 
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
@@ -11,11 +11,11 @@ var UserSchema = new Schema({
 
 	token: { 
 		type: String,
-		default: token(32),
+		default: tokenize,
 		unique: true,
 		required: true },
 
-	date: { type: Date, default: Date.now() }
+	date: { type: Date, default: Date.now }
 });
 
 
