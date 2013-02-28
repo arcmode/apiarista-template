@@ -1,13 +1,16 @@
-var Consumer = require('../../../..//data/models/consumer');
+var Consumer = require('../../../../data/models/consumer');
 
 module.exports = function(req, res) {
 	
 	Consumer.findOneByIdAndRemove(req.params.consumer_id, function(err, consumer){
-		if (err) { next(err); }
-		if (consumer) {
-			res.send(consumer);
+		if (err) {
+			next(err);
 		} else {
-			res.send(404, 'Consumer not found')
+			if (consumer) {
+				res.send(consumer);
+			} else {
+				res.send(404, 'Consumer not found')
+			}
 		}
 	});
 };
