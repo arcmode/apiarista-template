@@ -7,8 +7,8 @@ module.exports = function(app) {
 
 	app
 		.post('/consumers', create)
-		
-		.del('/consumers/:consumer_id', authConsumer
+
+		.del('/consumers/:consumer_id', authConsumer,
 										sameConsumer,
 										_delete);
 };
