@@ -18,10 +18,10 @@ module.exports = function(app) {
     .get('/resources/:resource_id', read)
 
     .put('/resources/:resource_id', authUser,
-                                    //IF-OWNED authOwner,
-                                    update)
+                            //IF-OWNED authOwner,
+                            update)
 
     .del('/resources/:resource_id', authUser,
-                                    //IF-OWNED authOwner,
-                                    _delete);
+                            //IF-OWNED authOwner,
+                            _delete);
 };
