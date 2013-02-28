@@ -1,13 +1,12 @@
 
-var itemCrud = require('./resources/item/crud'),
-	consumerCrud = require('./resources/consumer/crud');
-
 module.exports = function (app) {
 
 	app.configure(function(){
 	 	app.use('/', require('./auth/consumer'));
 	})
 
-	itemCrud(app);
-	consumerCrud(app);
+	require('./resources/user/crud')(app);
+	require('./resources/consumer/crud')(app);
+
+	//RESOURCES PLACEHOLDER
 };
