@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var dbURL = 'mongodb://localhost/test'
-var db = require('mongoose').connect(dbURL);
+var dbURL = 'mongodb://localhost/apiarista-template'
+  , db = require('mongoose').connect(dbURL);
 
 var express = require('express')
   , http = require('http')

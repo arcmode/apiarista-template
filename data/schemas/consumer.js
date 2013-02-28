@@ -10,7 +10,7 @@ var ConsumerSchema = new Schema({
 	secret: { 
 		type: String,
 		default: token(32),
-		unique: true,
+		// unique: true,
 		required: true },
 
 	date: { type: Date, default: Date.now() }
