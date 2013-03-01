@@ -10,7 +10,7 @@ module.exports = function(resource){
       
       if (err) {
 
-        res.json(400, err);
+        res.send(400, err);
 
       } else {
 

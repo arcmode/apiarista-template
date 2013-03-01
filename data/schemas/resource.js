@@ -10,7 +10,7 @@ module.exports = new Schema({
 
   //FIELDS PLACEHOLDER
 
-  //IF_OWNER , owner: { type: Schema.ObjectId, ref: '$Owner' }
+  //IF_OWNER , owner: { type: Schema.ObjectId, ref: '$Owner', required: true }
 
   //IF_AUTH , secret: { 
     //IF_AUTH type: String,
