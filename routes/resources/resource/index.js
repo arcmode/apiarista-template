@@ -14,7 +14,8 @@ module.exports = function(app) {
 
   app.namespace('/$resources', function(){
 
-    app.all('/:$resource_id', load
+    app.all('/:$resource_id',
+                            load
                             //IF_AUTH auth$Resource,
                             );
 
