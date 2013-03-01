@@ -40,7 +40,7 @@ module.exports = function(app) {
                             //IF_OWNER load$Owner,
                             //IF_OWNER auth$Owner,
                             //IF_OWNER auth$OwnerOwnership,
-                            //IF_AUTH same},
+                            //IF_AUTH same,
                             update,
                             send)
 
