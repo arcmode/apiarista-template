@@ -2,7 +2,7 @@ module.exports = function(resource){
 
   var Model = require('../../data/models/' + resource);
 
-  return function load(req, res, res){
+  return function load(req, res, next){
 
     Model.findById(req.params[resource + '_id'], function(err, result){
       

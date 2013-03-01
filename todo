@@ -1,20 +1,13 @@
 -- Add a protect dynamic middleware that delete request parameters like date, token and user_id
 
--- generate from /data/config/graph.js|on
+-- generate from /data/config/auto.js
 
-	iterate over
+		list of apiarista commands
 
-	module.exports = {
+-- should /api be renamed to resources ?
 
-		resources: [
-			{
-				id: "Resource",
-				schema: {
-					name: String,
-					owner: { type: Schema.ObjectId },
-					timestamp: undefined
-				}
-			}
-		];
+-- should '/api' namespace be renamed to '/resources' ?
 
-	}
+-- should namespace be an apiarista flag
+
+	apiarista -i --namespace resources
