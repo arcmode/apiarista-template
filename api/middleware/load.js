@@ -4,17 +4,19 @@ module.exports = function(resource){
 
   return function load(req, res, next){
 
-    Model.findById(req.params[resource + '_id'], function(err, result){
+    var resource_id = req.attr(resource + '_id');
+
+    Model.findById(resource_id, function(err, result){
       
       if (err) {
 
-        next(err);
+        res.json(400, err);
 
       } else {
 
         if (result) {
 
-          res[resource] = result;
+          req[resource] = result;
           next();
 
         } else {
