@@ -16,5 +16,5 @@ module.exports = new Schema({
     //IF_AUTH unique: true,
     //IF_AUTH required: true }
 
-  //IF_TIMESTAMP , $timestamp: { type: Date, default: Date.now }
+  //IF_TIMESTAMP , timestamp: { type: Date, default: Date.now }
 });
