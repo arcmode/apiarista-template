@@ -12,50 +12,52 @@ var load = require('../../middleware/load')('$resource'),
 
 module.exports = function(app) {
 
-  app.namespace('/$resources', function(){
+  app
+    .namespace('/$resources', function(){
 
-    app.all('/:$resource_id',
-                            load
-                            //IF_AUTH auth$Resource,
-                            );
+      app
+        .all('/:$resource_id',
+              load
+              //IF_AUTH auth$Resource,
+              );
 
-    app
-      .get('/',
+      app
+        .get('/',
               //IF_OWNER //IF_PPRIVATE load$Owner,
               //IF_OWNER //IF_PPRIVATE auth$Owner,
               list,
               send
               )
 
-      .post('/',
-                //IF_OWNER load$Owner,
-                //IF_OWNER auth$Owner,
-                create,
-                send
-                )
+        .post('/',
+              //IF_OWNER load$Owner,
+              //IF_OWNER auth$Owner,
+              create,
+              send
+              )
 
-      .get('/:$resource_id',
-                            //IF_OWNER //IF_PPRIVATE load$Owner,
-                            //IF_OWNER //IF_PPRIVATE auth$Owner,
-                            send
-                            )
+        .get('/:$resource_id',
+              //IF_OWNER //IF_PPRIVATE load$Owner,
+              //IF_OWNER //IF_PPRIVATE auth$Owner,
+              send
+              )
 
-      .put('/:$resource_id',
-                            //IF_OWNER load$Owner,
-                            //IF_OWNER auth$Owner,
-                            //IF_OWNER auth$OwnerOwnership,
-                            //IF_AUTH same,
-                            update,
-                            send
-                            )
+        .put('/:$resource_id',
+              //IF_OWNER load$Owner,
+              //IF_OWNER auth$Owner,
+              //IF_OWNER auth$OwnerOwnership,
+              //IF_AUTH same,
+              update,
+              send
+              )
 
-      .del('/:$resource_id',
-                            //IF_OWNER load$Owner,
-                            //IF_OWNER auth$Owner,
-                            //IF_OWNER auth$OwnerOwnership,
-                            //IF_AUTH same,
-                            _delete,
-                            send
-                            );
-  });
+        .del('/:$resource_id',
+              //IF_OWNER load$Owner,
+              //IF_OWNER auth$Owner,
+              //IF_OWNER auth$OwnerOwnership,
+              //IF_AUTH same,
+              _delete,
+              send
+              );
+    });
 };
