@@ -7,7 +7,7 @@ module.exports = function(resource, owner){
 
 	return function ownership(req, res, next) {
 
-		if (req[resource][owner]._id === req[owner]._id) {
+		if (req[resource].owner._id === req[owner]._id) {
 
 			next();
 
