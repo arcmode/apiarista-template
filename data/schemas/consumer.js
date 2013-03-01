@@ -1,9 +1,7 @@
 var tokenize = require('../utils/tokenize');
 
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId,
-	User = require('../models/user');
+	Schema = mongoose.Schema;
 
 var ConsumerSchema = new Schema({
 
