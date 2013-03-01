@@ -1,15 +1,16 @@
-var Resource = require('../../../../data/models/resource');
+var $Resource = require('../../../../data/models/$resource');
 
 module.exports = function(req, res, next) {
 
-  Resource.find({}, function(err, resources){
+  $Resource.find({}, function(err, $resources){
     if (err) {
       next(err);
     } else {
-      if (resources) {
-        res.send(resources);
+      if ($resources) {
+        res.$resource = $resources;
+        next();
       } else {
-        res.send(404, 'Resources not found')
+        res.send(404, 'Not found')
       }
     }
   });

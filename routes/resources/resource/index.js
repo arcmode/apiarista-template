@@ -1,25 +1,55 @@
-var create = require('./crud/create'),
-  list = require('./crud/list'),
-  read = require('./crud/read'),
-  update = require('./crud/update'),
-  _delete = require('./crud/delete'),
-  //IF-OWNED authOwner = require('../../auth/owner')('resource');
-  authUser = require('../../auth/user');
+var load = require('../../middleware/load')('$resource'),
+    create = require('./crud/create'),
+    list = require('./crud/list'),
+    update = require('./crud/update'),
+    _delete = require('./crud/delete'),
+    //IF-OWNER load$Owner = require('../../middleware/load')('$owner'),
+    //IF-OWNER auth$OwnerOwnership = require('../../middleware/ownership')('$resource', '$owner'),
+    //IF-OWNER auth$Owner = require('../../middleware/auth')('$owner'),
+    //IF_AUTH auth$Resource = require('../../middleware/auth')('$resource'),
+    //IF_AUTH same = require('../../middleware/same')('$resource'),
+    send = require('../../middleware/send')('$resource');
 
 module.exports = function(app) {
 
-  app
-    .get('/resources', list)
+  app.namespace('/$resources', function(){
 
-    .post('/resources', create)
+    app.all('/:$resource_id', load);
 
-    .get('/resources/:resource_id', read)
+    //IF-AUTH app.all('/:$resource_id', auth$Resource);
 
-    .put('/resources/:resource_id', authUser,
-                            //IF-OWNED authOwner,
-                            update)
+    app
+      .get('/',
+              //IF-OWNER //IF-PPRIVATE load$Owner,
+              //IF-OWNER //IF-PPRIVATE auth$Owner,
+              list,
+              send)
 
-    .del('/resources/:resource_id', authUser,
-                            //IF-OWNED authOwner,
-                            _delete);
+      .post('/',
+                //IF-OWNER load$Owner,
+                //IF-OWNER auth$Owner,
+                create,
+                send)
+
+      .get('/:$resource_id',
+                            //IF-OWNER //IF-PPRIVATE load$Owner,
+                            //IF-OWNER //IF-PPRIVATE auth$Owner,
+                            send)
+
+      .put('/:$resource_id',
+                            //IF-OWNER load$Owner,
+                            //IF-OWNER auth$Owner,
+                            //IF-OWNER auth$OwnerOwnership,
+                            //IF_AUTH same},
+                            update,
+                            send)
+
+      .del('/:$resource_id',
+                            //IF-OWNER load$Owner,
+                            //IF-OWNER auth$Owner,
+                            //IF-OWNER auth$OwnerOwnership,
+                            //IF_AUTH same,
+                            _delete,
+                            send);
+  });
 };

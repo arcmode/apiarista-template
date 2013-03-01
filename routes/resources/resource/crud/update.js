@@ -1,16 +1,9 @@
-var Resource = require('../../../../data/models/resource');
-
 module.exports = function(req, res, next) {
   
-  Resource.findOneByIdAndUpdate(req.params.resource_id, function(err, resource){
-    if (err) {
-      next(err);
-    } else {
-      if (resource) {
-        res.send(resource);
-      } else {
-        res.send(404, 'Resource not found')
-      }
-    }
+  var req.$resource = req.body;
+
+  req.$resource.save(function(err, $resource) {
+    if (err) { return next(err); }
+    next();
   });
 };

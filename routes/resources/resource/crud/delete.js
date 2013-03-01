@@ -1,15 +1,14 @@
-var Resource = require('../../../../data/models/resource');
-
 module.exports = function(req, res, next) {
   
-  Resource.findOneByIdAndRemove(req.params.resource_id, function(err, resource){
+  req.$resource.remove(function(err, $resource){
     if (err) {
       next(err);
     } else {
-      if (resource) {
-        res.send(resource);
+      if ($resource) {
+        res.$resource = $resource;
+        next();
       } else {
-        res.send(404, 'Resource not found')
+        res.send(404, 'Not found');
       }
     }
   });
