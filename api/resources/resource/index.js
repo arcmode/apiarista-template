@@ -18,8 +18,8 @@ module.exports = function(app) {
       app
         .all('/:$resource_id',
               load
-              //IF_AUTH auth$Resource,
-              );
+            //IF_AUTH , auth$Resource
+            )
 
       app
         .get('/',
