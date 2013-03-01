@@ -1,1 +1,20 @@
 -- Add a protect dynamic middleware that delete request parameters like date, token and user_id
+
+-- generate from /data/config/graph.js|on
+
+	iterate over
+
+	module.exports = {
+
+		resources: [
+			{
+				id: "Resource",
+				schema: {
+					name: String,
+					owner: { type: Schema.ObjectId },
+					timestamp: undefined
+				}
+			}
+		];
+
+	}

@@ -8,8 +8,6 @@ var create = require('./crud/create'),
 
 module.exports = function(app) {
 
-  app.all('/users', require('../../auth/consumer'));
-
   app
     .get('/users', list)
 
