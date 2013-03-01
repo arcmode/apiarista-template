@@ -14,27 +14,30 @@ module.exports = function(app) {
 
   app.namespace('/$resources', function(){
 
-    app.all('/:$resource_id', 
+    app.all('/:$resource_id', load
                             //IF_AUTH auth$Resource,
-                            load);
+                            );
 
     app
       .get('/',
               //IF_OWNER //IF_PPRIVATE load$Owner,
               //IF_OWNER //IF_PPRIVATE auth$Owner,
               list,
-              send)
+              send
+              )
 
       .post('/',
                 //IF_OWNER load$Owner,
                 //IF_OWNER auth$Owner,
                 create,
-                send)
+                send
+                )
 
       .get('/:$resource_id',
                             //IF_OWNER //IF_PPRIVATE load$Owner,
                             //IF_OWNER //IF_PPRIVATE auth$Owner,
-                            send)
+                            send
+                            )
 
       .put('/:$resource_id',
                             //IF_OWNER load$Owner,
@@ -42,7 +45,8 @@ module.exports = function(app) {
                             //IF_OWNER auth$OwnerOwnership,
                             //IF_AUTH same,
                             update,
-                            send)
+                            send
+                            )
 
       .del('/:$resource_id',
                             //IF_OWNER load$Owner,
@@ -50,6 +54,7 @@ module.exports = function(app) {
                             //IF_OWNER auth$OwnerOwnership,
                             //IF_AUTH same,
                             _delete,
-                            send);
+                            send
+                            );
   });
 };
