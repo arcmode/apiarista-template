@@ -8,7 +8,7 @@ module.exports = function(req, res, next) {
 
     if (err) { 
       
-      next(err); 
+      res.send(err); 
     
     } else {
       
