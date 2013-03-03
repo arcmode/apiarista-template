@@ -12,15 +12,8 @@ module.exports = function(req, res, next) {
     
     } else {
       
-      if ($resource) {
-        
-        req.$resource = $resource;
-        next();
-      
-      } else {
-        
-        res.send(404, 'Not found')
-      }
+      req.$resource = $resource;
+      next();
     }
   });
 };
