@@ -1,7 +1,7 @@
 {
   "name": "apiarista-template",
   "version": "0.0.1",
-  "author": "David Rojas <drojascamaggi@gmail.com>",
+  "author": "$Author",
   "private": true,
   "scripts": {
     "start": "node app"
@@ -11,8 +11,8 @@
     "express-namespace": "0.1.1",
     "jade": "*",
     "stylus": "*",
+    "socket.io": "0.9.13",
     "mongoose": "3.5.7",
     "token.js": "0.0.1"
-  },
-  "repository": "git://github.com/drojas/apiarista-template"
+  }
 }

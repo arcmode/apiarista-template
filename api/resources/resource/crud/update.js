@@ -1,8 +1,6 @@
 module.exports = function(req, res, next) {
-  
-  req.$resource = req.body;
 
-  req.$resource.save(function(err, $resource) {
+  req.$resource.update(req.body, function(err, $resource) {
     
     if (err) {
     

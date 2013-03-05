@@ -5,7 +5,10 @@
 
 var express = require('express')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+    socketio = require('socket.io');
+
+require('express-namespace');
 
 var app = express();
 
@@ -26,8 +29,12 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-require('./routes')(app);
+var io = socketio.listen(server);
+
+app.io = io;
+
+require('./api')(app);

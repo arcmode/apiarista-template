@@ -60,4 +60,6 @@ module.exports = function(app) {
               send
               );
     });
+
+  require('./realtime')(app);
 };
